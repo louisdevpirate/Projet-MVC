@@ -1,0 +1,15 @@
+/* Navbar principale  */
+.main-navbar .main-logo{
+    color: #FCFC87;
+}
+
+.main-navbar .navbar-brand{
+    font-size: 2rem;
+}
+
+/* Images page principale */
+.home-fruits img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}

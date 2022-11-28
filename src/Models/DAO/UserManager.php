@@ -41,6 +41,7 @@ class UserManager{
         $createUser->closeCursor();
     }
 
+
     public function findOneBy(string $field, $value): ?User
     {
 
@@ -66,7 +67,5 @@ class UserManager{
         }
 
         return $convertedUser ?? null;
-    }
-
-
+    } 
 }

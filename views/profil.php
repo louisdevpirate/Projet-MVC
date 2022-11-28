@@ -30,22 +30,22 @@
 
                         <tr>
                             <td class="col-6 fw-bold">Adresse email :</td>
-                            <td><?= htmlspecialchars( $_SESSION['user']->getEmail() ) ?></td>
+                            <td><?= htmlspecialchars($_SESSION['user']->getEmail()) ?></td>
                         </tr>
 
                         <tr>
                             <td class="col-6 fw-bold">Prénom :</td>
-                            <td><?= htmlspecialchars( $_SESSION['user']->getFirstname() ) ?></td>
+                            <td><?= htmlspecialchars($_SESSION['user']->getFirstname()) ?></td>
                         </tr>
 
                         <tr>
                             <td class="col-6 fw-bold">Nom :</td>
-                            <td><?= htmlspecialchars( $_SESSION['user']->getLastname() ) ?></td>
+                            <td><?= htmlspecialchars($_SESSION['user']->getLastname()) ?></td>
                         </tr>
 
                         <tr>
                             <td class="col-6 fw-bold">Date d'inscription :</td>
-                            <td><?= ( $_SESSION['user']->getRegisterDate()->format('d/m/Y à H:i:s') ) ?></td>
+                            <td><?= ($_SESSION['user']->getRegisterDate()->format('d/m/Y à H:i:s')) ?></td>
                         </tr>
 
                     </tbody>

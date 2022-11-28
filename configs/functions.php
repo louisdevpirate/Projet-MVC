@@ -11,6 +11,10 @@ set_error_handler('exceptions_error_handler');
 // Fonction qui permettra d'autocharger les fichiers contenant les classes PHP (dans le dossier "classes")
 function call($className){
 
+    if(!file_exists(__DIR__ . '/../src/' . $className . '.php')){
+        throw new Exception('La classe "' . $className . '.php' . '" n\'existe pas, un use a peut-être été oublié ?');
+    }
+
     // Emplacement du dossier des classes de notre site ("classes" dans cet exemple), auquel on ajoute le nom du fichier à inclure avec .php derrière
     $file = __DIR__ . '/../src/' . $className . '.php';
 
@@ -46,28 +50,25 @@ function request_path()
     return $path;
 }
 
-// ----------------------------
+
+//---------------------
 
 
-function connectDb(): PDO
+function connectDB(): PDO
 {
     $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASSWORD);
     return $db;
 }
 
-
-
-// ----------------------------
+//----------------------
 
 //Activation du système des sessions PHP
 session_start();
 
+//----------------------
 
-// ----------------------------
+//Fonction qui retourne true si on est connecté, sinon false
 
-// Fonction qui retourne true si on est connecté, sinon false
 function isConnected(){
     return isset($_SESSION['user']);
 }
-
-

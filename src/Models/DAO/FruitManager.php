@@ -53,8 +53,9 @@ class FruitManager{
 
         $fruitList = $getFruits->fetchAll(PDO::FETCH_ASSOC);
 
+        $getFruits->closeCursor();
 
-        $fruitsListObjects = [];
+        
 
         foreach($fruitList as $fruit){
 
@@ -82,6 +83,7 @@ class FruitManager{
 
     }
 
+
     public function findOneBy(string $field, $value): ?Fruit
     {   
 
@@ -94,13 +96,13 @@ class FruitManager{
         $foundFruit = $getFruit->fetch(PDO::FETCH_ASSOC);
 
 
-        $userManager = new UserManager();
-
-        $authorObject = $userManager->findOneBy('id', $foundFruit['user_id']);
-
-
         if(!empty($foundFruit))
         {
+
+            $userManager = new UserManager();
+
+            $authorObject = $userManager->findOneBy('id', $foundFruit['user_id']);
+
             $convertedFruit = new Fruit();
 
             $convertedFruit
@@ -115,6 +117,30 @@ class FruitManager{
         }
 
         return $convertedFruit ?? null;
+
+    }
+
+    public function delete(Fruit $fruitToDelete): void
+    {
+        $deleteFruit = $this->db->prepare('DELETE FROM fruit WHERE id = ?');
+
+        $deleteFruit->execute([
+            $fruitToDelete->getId(),
+        ]);
+    }
+
+    public function update(Fruit $fruitToUpdate): void 
+    {
+        $updateFruit = $this->db->prepare('UPDATE fruit SET name=?, color=?, origin=?, price_per_kilo=?, description=? WHERE id=? ');
+
+        $updateFruit->execute([
+            $fruitToUpdate->getName(),
+            $fruitToUpdate->getColor(),
+            $fruitToUpdate->getOrigin(),
+            $fruitToUpdate->getPricePerKilo(),
+            $fruitToUpdate->getDescription(),
+            $fruitToUpdate->getId(),
+        ]);
 
     }
 

@@ -2,14 +2,14 @@
 <html lang="fr">
 
 <head>
-    <title>Ajouter un fruit - Wikifruit</title>
+    <title>Accueil-Wikifruit</title>
     <!-- Inclusion du contenu du fichier header.php -->
     <?php include VIEWS_DIR . '/partials/header.php'; ?>
+
 </head>
 
 <body>
-
-    <!-- Inclusion du menu -->
+    <!--Inclusion du menu-->
     <?php include VIEWS_DIR . '/partials/menu.php'; ?>
 
     <div class="container">
@@ -17,14 +17,12 @@
         <!-- Titre H1 -->
         <div class="row my-5">
 
-            <h1 class="col-12 text-center">Ajouter un fruit - Wikifruit</h1>
+            <h1 class="col-12 text-center">Ajouter un fruit- Wikifruit</h1>
 
         </div>
 
         <!-- Contenu de la page -->
         <div class="row">
-
-
 
 
             <?php
@@ -53,7 +51,7 @@
                     ?>
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nom</label>
+                        <label for="name" class="form-label">Nom du fruit</label>
                         <input name="name" id="name" class="form-control" type="text">
                     </div>
 
@@ -63,13 +61,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="origin" class="form-label">Pays d'origine</label>
+                        <label for="origin" class="form-label">Origine du fruit</label>
                         <input name="origin" id="origin" class="form-control" type="text">
                     </div>
 
                     <div class="mb-3">
-                        <label for="price-per-kilo" class="form-label">Prix au kilo</label>
-                        <input name="price-per-kilo" id="price-per-kilo" class="form-control" type="text">
+                        <label for="price" class="form-label">Prix au kilo</label>
+                        <input name="price" id="price" class="form-control" type="text">
                     </div>
 
                     <div class="mb-3">
@@ -77,7 +75,6 @@
                         <textarea name="description" class="form-control" id="description" rows="3"></textarea>
                     </div>
                     <br>
-
 
                     <div class="mb-3">
                         <input type="submit" class="col-12 btn btn-success">
@@ -88,18 +85,12 @@
             <?php
             }
             ?>
-
         </div>
 
-
-
-
-    </div>
-
     </div>
 
 
-    <!-- Inclusion du contenu du fichier footer.php -->
+
     <?php include VIEWS_DIR . '/partials/footer.php'; ?>
 </body>
 

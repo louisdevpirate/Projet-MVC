@@ -1,4 +1,3 @@
-
 # Fichier nécessaire sur un serveur Apache pour que toutes les requêtes HTTP soient bien redirigées sur le contrôleur frontal "index.php"
 
 
